@@ -7,9 +7,7 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
-  constructor(public modal: ModalService) {
-    console.log(this.modal.visible);
-  }
+  constructor(public modal: ModalService) {}
 
   ngOnInit(): void {}
 }
