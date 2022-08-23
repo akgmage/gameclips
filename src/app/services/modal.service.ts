@@ -12,8 +12,8 @@ export class ModalService {
   private modals: IModal[] = [];
   constructor() {}
 
-  isModalOpen() {
-    return true;
+  isModalOpen(id: string): boolean {
+    return !!this.modals.find((element) => element.id === id)?.visible;
   }
 
   toggleModal() {
@@ -24,6 +24,5 @@ export class ModalService {
       id,
       visible: false,
     });
-    console.log(this.modals);
   }
 }
