@@ -7,7 +7,7 @@ import { TabComponent } from './tab/tab.component';
 @NgModule({
   declarations: [ModalComponent, TabsContainerComponent, TabComponent],
   imports: [CommonModule],
-  exports: [ModalComponent],
+  exports: [ModalComponent, TabsContainerComponent, TabComponent],
   providers: [ModalService],
 })
 export class SharedModule {}
