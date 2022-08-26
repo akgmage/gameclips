@@ -1,4 +1,4 @@
-import { Component, OnInit, ContentChildren } from '@angular/core';
+import { Component, AfterContentInit, ContentChildren } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 
 @Component({
@@ -6,11 +6,11 @@ import { TabComponent } from '../tab/tab.component';
   templateUrl: './tabs-container.component.html',
   styleUrls: ['./tabs-container.component.css'],
 })
-export class TabsContainerComponent implements OnInit {
+export class TabsContainerComponent implements AfterContentInit {
   @ContentChildren(TabComponent) tabs = {};
   constructor() {}
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     console.log(this.tabs);
   }
 }
