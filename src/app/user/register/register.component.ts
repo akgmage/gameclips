@@ -5,4 +5,6 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent {}
+export class RegisterComponent {
+  registerForm = new FormGroup({});
+}
