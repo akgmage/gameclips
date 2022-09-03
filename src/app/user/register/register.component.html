@@ -9,7 +9,21 @@
       class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
       placeholder="Enter Name"
     />
-    <p>{{ registerForm.controls.name.errors | json }}</p>
+    <p *ngIf="registerForm.controls.name.errors?.required" class="text-red-400">
+      Field is required
+    </p>
+    <p
+      *ngIf="registerForm.controls.name.errors?.minlength"
+      class="text-red-400"
+    >
+      The value you entered is
+      {{ registerForm.controls.name.errors?.minlength.actualLength }} characters
+      long. It must be
+      {{
+        registerForm.controls.name.errors?.minlength.requiredLength
+      }}
+      characters long
+    </p>
   </div>
   <!-- Email -->
   <div class="mb-3">
