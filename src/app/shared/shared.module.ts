@@ -8,7 +8,7 @@ import { InputComponent } from './input/input.component';
 @NgModule({
   declarations: [ModalComponent, TabsContainerComponent, TabComponent, InputComponent],
   imports: [CommonModule],
-  exports: [ModalComponent, TabsContainerComponent, TabComponent],
+  exports: [ModalComponent, TabsContainerComponent, TabComponent, InputComponent],
   providers: [ModalService],
 })
 export class SharedModule {}
