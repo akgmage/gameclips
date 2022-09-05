@@ -17,4 +17,8 @@
   </p>
   <p *ngIf="control.errors?.min" class="text-red-400">Value too low</p>
   <p *ngIf="control.errors?.max" class="text-red-400">Value too high</p>
+  <p *ngIf="control.errors?.pattern" class="text-red-400">
+    Passwords must be atlease 8 characters long, have 1 uppercase letter, 1
+    lowercase letter and 1 number
+  </p>
 </ng-container>
