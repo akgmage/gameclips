@@ -21,6 +21,10 @@ export class RegisterComponent {
       ),
     ]),
     confirmPassword: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl(''),
+    phoneNumber: new FormControl('', [
+      Validators.required,
+      Validators.minLength(13),
+      Validators.max(13),
+    ]),
   });
 }

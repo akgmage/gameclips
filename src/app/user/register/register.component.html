@@ -40,19 +40,17 @@
     <app-input
       [control]="registerForm.controls.confirmPassword"
       type="password"
-      placeholder="Confirm Password"
+      placeholder="Confirm  Password"
     >
     </app-input>
   </div>
   <!-- Phone Number -->
   <div class="mb-3">
     <label class="inline-block mb-2">Phone Number</label>
-    <input
-      formControlName="phoneNumber"
-      type="text"
-      class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-      placeholder="Enter Phone Number"
-    />
+    <app-input
+      [control]="registerForm.controls.phoneNumber"
+      format="(000)000-0000"
+    ></app-input>
   </div>
   <button
     type="submit"
