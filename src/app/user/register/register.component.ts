@@ -27,4 +27,7 @@ export class RegisterComponent {
       Validators.max(13),
     ]),
   });
+  register() {
+    console.log('register called');
+  }
 }
