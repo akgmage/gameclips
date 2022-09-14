@@ -33,9 +33,14 @@ export class RegisterComponent {
       Validators.max(13),
     ]),
   });
-  register() {
+  async register() {
     this.showAlert = true;
     this.alertMsg = 'Please wait! your account is being created.';
     this.alertColor = 'blue';
+    const { email, password } = this.registerForm.value;
+    const userCred = await this.auth.createUserWithEmailAndPassword(
+      email as string,
+      password as string
+    );
   }
 }
