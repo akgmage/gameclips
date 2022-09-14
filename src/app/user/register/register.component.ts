@@ -38,9 +38,15 @@ export class RegisterComponent {
     this.alertMsg = 'Please wait! your account is being created.';
     this.alertColor = 'blue';
     const { email, password } = this.registerForm.value;
-    const userCred = await this.auth.createUserWithEmailAndPassword(
-      email as string,
-      password as string
-    );
+    try {
+      const userCred = await this.auth.createUserWithEmailAndPassword(
+        email as string,
+        password as string
+      );
+    } catch (e) {
+      console.error(e);
+      this.alertMsg = 'Please try again later';
+      this.alertColor = 'red';
+    }
   }
 }
