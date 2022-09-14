@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  // inject the service
+  constructor(private auth: AngularFireAuth) {}
   showAlert = false;
   alertMsg = 'Please wait! your account is being created.';
   alertColor = 'blue';
