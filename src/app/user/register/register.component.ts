@@ -43,11 +43,14 @@ export class RegisterComponent {
         email as string,
         password as string
       );
+      console.log(userCred);
     } catch (e) {
       console.error(e);
       this.alertMsg = 'Please try again later';
       this.alertColor = 'red';
       return;
     }
+    this.alertMsg = 'Account created successfully';
+    this.alertColor = 'green';
   }
 }
