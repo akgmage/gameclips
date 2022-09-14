@@ -47,6 +47,7 @@ export class RegisterComponent {
       console.error(e);
       this.alertMsg = 'Please try again later';
       this.alertColor = 'red';
+      return;
     }
   }
 }
