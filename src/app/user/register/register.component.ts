@@ -9,6 +9,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class RegisterComponent {
   // inject the service
   constructor(private auth: AngularFireAuth) {}
+
+  inSubmission = false;
   showAlert = false;
   alertMsg = 'Please wait! your account is being created.';
   alertColor = 'blue';
@@ -34,6 +36,7 @@ export class RegisterComponent {
     ]),
   });
   async register() {
+    this.inSubmission = true;
     this.showAlert = true;
     this.alertMsg = 'Please wait! your account is being created.';
     this.alertColor = 'blue';
@@ -48,6 +51,7 @@ export class RegisterComponent {
       console.error(e);
       this.alertMsg = 'Please try again later';
       this.alertColor = 'red';
+      this.inSubmission = false;
       return;
     }
     this.alertMsg = 'Account created successfully';
