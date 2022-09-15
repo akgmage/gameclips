@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class RegisterComponent {
   // inject the service
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth, private db: AngularFirestore) {}
 
   inSubmission = false;
   showAlert = false;
@@ -46,7 +47,12 @@ export class RegisterComponent {
         email as string,
         password as string
       );
-      console.log(userCred);
+      await this.db.collection('users').add({
+        name: this.registerForm.value.name,
+        email: this.registerForm.value.email,
+        age: this.registerForm.value.age,
+        phoneNumber: this.registerForm.value.phoneNumber,
+      });
     } catch (e) {
       console.error(e);
       this.alertMsg = 'Please try again later';
