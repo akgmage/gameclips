@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,7 +8,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class RegisterComponent {
   // inject the service
-  constructor(private auth: AngularFireAuth, private db: AngularFirestore) {}
+  constructor(private auth: AuthService) {}
 
   inSubmission = false;
   showAlert = false;
@@ -41,18 +40,9 @@ export class RegisterComponent {
     this.showAlert = true;
     this.alertMsg = 'Please wait! your account is being created.';
     this.alertColor = 'blue';
-    const { email, password } = this.registerForm.value;
+
     try {
-      const userCred = await this.auth.createUserWithEmailAndPassword(
-        email as string,
-        password as string
-      );
-      await this.db.collection('users').add({
-        name: this.registerForm.value.name,
-        email: this.registerForm.value.email,
-        age: this.registerForm.value.age,
-        phoneNumber: this.registerForm.value.phoneNumber,
-      });
+      await this.auth.createUser(this.registerForm.value);
     } catch (e) {
       console.error(e);
       this.alertMsg = 'Please try again later';
