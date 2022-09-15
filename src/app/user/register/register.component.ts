@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class RegisterComponent {
   // inject the service
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth, private db: AngularFirestore) {}
 
   inSubmission = false;
   showAlert = false;
