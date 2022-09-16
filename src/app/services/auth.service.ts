@@ -9,8 +9,10 @@ import IUser from '../models/user.model';
   providedIn: 'root',
 })
 export class AuthService {
-  private usersCollection: AngularFirestoreCollection;
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {}
+  private usersCollection: AngularFirestoreCollection<IUser>;
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
+    this.usersCollection = db.collection('users');
+  }
 
   public async createUser(userData: IUser) {
     if (!userData.password) throw new Error('Password not provided!');
@@ -18,7 +20,7 @@ export class AuthService {
       userData.email as string,
       userData.password as string
     );
-    await this.db.collection<IUser>('users').add({
+    await this.usersCollection.add({
       name: userData.name,
       email: userData.email,
       age: userData.age,
