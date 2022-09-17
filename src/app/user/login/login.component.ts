@@ -28,7 +28,13 @@ export class LoginComponent implements OnInit {
         this.credentials.email,
         this.credentials.password
       );
-    } catch (e) {}
+    } catch (e) {
+      console.error(e);
+      this.alertMsg = 'Please try again later';
+      this.alertColor = 'red';
+      this.inSubmission = false;
+      return;
+    }
     this.alertMsg = 'Login successful';
     this.alertColor = 'green';
   }
