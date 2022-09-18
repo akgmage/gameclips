@@ -5,13 +5,15 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class Emailtaken implements AsyncValidator {
   constructor(private auth: AngularFireAuth) {}
 
-  validate(control: AbstractControl): Promise<ValidationErrors | null> {
-    this.auth
+  validate = (control: AbstractControl): Promise<ValidationErrors | null> => {
+    return this.auth
       .fetchSignInMethodsForEmail(control.value)
-      .then((response) => (response.length ? { emailtaken: true } : null));
-  }
+      .then((response) => (response.length ? { emailTaken: true } : null));
+  };
 }
