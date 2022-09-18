@@ -38,7 +38,7 @@ export class RegisterComponent {
         Validators.max(13),
       ]),
     },
-    [RegisterValidators.match]
+    [RegisterValidators.match('password', 'confirmPassword')]
   );
   async register() {
     this.inSubmission = true;
