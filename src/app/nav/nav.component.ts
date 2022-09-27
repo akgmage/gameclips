@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalService } from '../services/modal.service';
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -11,7 +12,8 @@ export class NavComponent implements OnInit {
   constructor(
     public modal: ModalService,
     public auth: AuthService,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -23,5 +25,6 @@ export class NavComponent implements OnInit {
   async logout($event: Event) {
     $event.preventDefault();
     await this.afAuth.signOut();
+    await this.router.navigateByUrl('/');
   }
 }
