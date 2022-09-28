@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'upload',
     component: UploadComponent,
     data: {
-      authONly: true,
+      authOnly: true,
     },
   },
 ];
