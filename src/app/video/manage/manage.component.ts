@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./manage.component.css'],
 })
 export class ManageComponent implements OnInit {
+  // 1: descending
+  // 2: ascending
   videoOrder = '1';
   constructor(private router: Router, private route: ActivatedRoute) {}
 
