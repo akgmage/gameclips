@@ -11,6 +11,6 @@ export class ManageComponent implements OnInit {
   ngOnInit(): void {}
 
   sort(event: Event) {
-    const { value } = event.target;
+    const { value } = event.target as HTMLSelectElement;
   }
 }
