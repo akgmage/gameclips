@@ -25,6 +25,7 @@ import { EventBlockerDirective } from './directives/event-blocker.directive';
     TabComponent,
     InputComponent,
     AlertComponent,
+    EventBlockerDirective,
   ],
   providers: [ModalService],
 })
