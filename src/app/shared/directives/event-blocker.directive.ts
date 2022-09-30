@@ -1,10 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appEventBlocker]'
+  selector: '[app-event-blocker]',
 })
 export class EventBlockerDirective {
-
-  constructor() { }
-
+  constructor() {}
 }
